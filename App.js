@@ -1,13 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import {Text_test} from './Components/Text_test'
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Es mer main branch-y 🎉</Text>
-      <br/>
-      <Text style={styles.text}>{"sran chkpneq )"}</Text>
-      <StatusBar style="auto" />
+      <Text_test key={465}/>
     </View>
   );
 }
@@ -19,7 +17,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  text:{
-    color:"#fff",
-  },
+
 });
