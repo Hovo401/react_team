@@ -3,7 +3,7 @@ import {useState} from 'react'
 import {StyleSheet, Text, View ,TextInput,Button,Br} from 'react-native';
 
 export const Text_test=()=> {
-
+  //https://vrit.me/?q=
   const[input,SetInput]=useState("");
   const[text,setText]=useState([]);
 
