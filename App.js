@@ -4,9 +4,9 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Es mer main branch-y 🎉</Text>
+      <Text style={styles.text}>Es mer main branch-y 🎉</Text>
       <br/>
-      <Text>{"sran chkpneq )"}</Text>
+      <Text style={styles.text}>{"sran chkpneq )"}</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -15,8 +15,11 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  text:{
+    color:"#fff",
   },
 });
