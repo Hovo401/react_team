@@ -1,64 +1,78 @@
 
-import {useState, useRef } from 'react'
-import {Animated,StyleSheet, Text, View ,TextInput,Button,Image,SafeAreaView } from 'react-native';
+import { useState, useRef } from 'react'
+import { Animated, StyleSheet, Text, View, TextInput, Button, Image, SafeAreaView, Pressable } from 'react-native';
 
-export const Navbar=()=>{
-    
-  
-
-    return(
-
-        <View style={stylesr.navbar}>
+export const Navbar = ({ setRenderName }) => {
 
 
-          
-            <View style={stylesr.alignitems}>
-                <View  style={stylesr.button}>
-                <Image style={stylesr.image} source={require("../Image/itunes.png")}></Image>
-                </View>
-                <View  style={stylesr.button}>
-                <Image style={stylesr.image} source={require("../Image/itunes.png")}></Image>
-                </View>
-                <View  style={stylesr.button}>
-                <Image style={stylesr.image} source={require("../Image/itunes.png")}></Image>
-                </View>
-            </View>
-        </View>
-    )
+
+  return (
+
+    <View style={stylesr.navbar}>
+
+      <View style={stylesr.alignitems}>
+
+        <Pressable style={stylesr.button} onPress={() => {
+          setRenderName("Home")
+        }}>
+          <Image style={stylesr.image} source={require("../Icons/home.png")}></Image>
+        </Pressable>
+        <Pressable style={stylesr.button} onPress={() => {
+          setRenderName("Search")
+        }}>
+
+          <Image style={stylesr.image} source={require("../Icons/search.png")}></Image>
+        </Pressable>
+        <Pressable style={stylesr.button} onPress={() => {
+          setRenderName("Music")
+        }}>
+          <Image style={stylesr.image} source={require("../Icons/music.png")}></Image>
+        </Pressable>
+        <Pressable style={stylesr.button} onPress={() => {
+          setRenderName("Account")
+        }}>
+          <Image style={stylesr.image} source={require("../Icons/account.png")}></Image>
+        </Pressable>
+      </View>
+    </View>
+  )
 }
 
 
-  const stylesr = StyleSheet.create({
-    navbar:{
-        width:"100%",
-        height:60,
-        backgroundColor:"#770022",
-        alignItems:"center",
-        justifyContent:"center",
-    },
-    alignitems:{
-        flexWrap:"wrap",  
-        height:50,
-    },
-    button:{
-        color:"#fff",
-        width:70,
-        height:50,
-        // backgroundColor:"#aaa",
-        // borderColor:"#000",
-        // borderWidth:5,
-        marginHorizontal:20,
-        alignItems:"center",
-        justifyContent:"center",
-        
-    },
-    image:{
-        height:50,
-        width:50
-    }
-  });
+const stylesr = StyleSheet.create({
+  navbar: {
+    width: "100%",
+    height: 60,
+    backgroundColor: "#333",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  alignitems: {
+    flexWrap: "wrap",
+    width: "100%",
+    height: 50,
+  },
+  button: {
+    color: "#fff",
+    backgroundColor: "#444",
+    width: "20%",
+    height: 50,
+    // backgroundColor:"#aaa",
+    // borderColor:"#000",
+    // borderWidth:5,
+    marginHorizontal: "2.5%",
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
 
-  const styles = StyleSheet.create({
+  },
+  image: {
+    height: 30,
+    width: 30
+  }
+});
+
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
@@ -66,7 +80,7 @@ export const Navbar=()=>{
   },
   fadingContainer: {
     padding: 20,
-    backgroundColor: "powderblue"
+    backgroundColor: "#333"
   },
   fadingText: {
     fontSize: 28

@@ -1,19 +1,42 @@
-import { StyleSheet, Text, View } from 'react-native';
-import {Text_test} from './src/Components/Text_test';
-import {Navbar} from './src/Components/Navbar'
-import {useEffect} from 'react'
-import axios from 'axios'
+import React from 'react';
+import { SafeAreaView, View, VirtualizedList, StyleSheet, Text, StatusBar } from 'react-native';
+import { useState, useEffect } from 'react';
+// your components
+import { Navbar } from './src/Components/Navbar';
+import { Home } from './src/Components/Home';
+import { Search } from './src/Components/Search';
+import { Music } from './src/Components/Music';
+import { Account } from './src/Components/Account';
 
-export default function App() {
-  
+//========= Render Stranic =========
+const Rendr_stranic={
+Home :()=> { return <Home key={'home'}/> },
+Search :()=> { return <Search key={'edewew'}/> },
+Music :()=> { return <Music key={'hoewfewfme'}/> },
+Account :()=> { return <Account key={'we'}/> },
+}
+ const Render = (Name_stranic)=>{
+   for(var data in Rendr_stranic){
+     if (data==Name_stranic){
+       return Rendr_stranic[data]()
+     }
+   }
+ }
+//==================================
+
+const App = () => {
+
+
+  const [renderName, setRenderName] = useState("Home");
+
+
   return (
     <>
-    <View style={styles.container}>
-      {/* <Text_test key={465}/> */}
-      <StatusBar style="auto" />
+      <View style={styles.container}>
+     { Render(renderName)}
+      </View>
       
-    </View>
-    <Navbar key="navbar"></Navbar>
+      <Navbar setRenderName={setRenderName} />
     </>
   );
 }
@@ -21,9 +44,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: StatusBar.currentHeight,
   },
-
 });
+
+export default App;

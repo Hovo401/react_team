@@ -10,6 +10,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-navigation/bottom-tabs": "file:react-navigation/bottom-tabs@react-navigation/bottom-tabs",
+    "@react-navigation/stack": "^6.2.2",
     "axios": "^0.27.2",
     "expo": "~45.0.0",
     "expo-cli": "^5.5.1",
