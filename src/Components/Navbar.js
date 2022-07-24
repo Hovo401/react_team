@@ -1,40 +1,43 @@
 
 import { useState, useRef } from 'react'
-import { Animated, StyleSheet, Text, View, TextInput, Button, Image, SafeAreaView, Pressable } from 'react-native';
-
+import { Animated, StyleSheet, Text, View, TextInput, Button, Image, Pressable } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 export const Navbar = ({ setRenderName }) => {
 
 
 
   return (
+    <SafeAreaView>
+      <View style={stylesr.navbar}>
 
-    <View style={stylesr.navbar}>
+        <View style={stylesr.alignitems}>
 
-      <View style={stylesr.alignitems}>
+          <Pressable style={stylesr.button} onPress={() => {
+            setRenderName("Home")
+          }}>
+            <Image style={stylesr.image} source={require("../Icons/home.png")}></Image>
+          </Pressable>
+          <Pressable style={stylesr.button} onPress={() => {
+            setRenderName("Search")
+          }}>
 
-        <Pressable style={stylesr.button} onPress={() => {
-          setRenderName("Home")
-        }}>
-          <Image style={stylesr.image} source={require("../Icons/home.png")}></Image>
-        </Pressable>
-        <Pressable style={stylesr.button} onPress={() => {
-          setRenderName("Search")
-        }}>
-
-          <Image style={stylesr.image} source={require("../Icons/search.png")}></Image>
-        </Pressable>
-        <Pressable style={stylesr.button} onPress={() => {
-          setRenderName("Music")
-        }}>
-          <Image style={stylesr.image} source={require("../Icons/music.png")}></Image>
-        </Pressable>
-        <Pressable style={stylesr.button} onPress={() => {
-          setRenderName("Account")
-        }}>
-          <Image style={stylesr.image} source={require("../Icons/account.png")}></Image>
-        </Pressable>
+            <Image style={stylesr.image} source={require("../Icons/search.png")}></Image>
+          </Pressable>
+          <Pressable style={stylesr.button} onPress={() => {
+            setRenderName("Music")
+          }}>
+            <Image style={stylesr.image} source={require("../Icons/music.png")}></Image>
+          </Pressable>
+          <Pressable style={stylesr.button} onPress={() => {
+            setRenderName("Account")
+          }}>
+            <Image style={stylesr.image} source={require("../Icons/account.png")}></Image>
+          </Pressable>
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
+
+
   )
 }
 
@@ -54,7 +57,7 @@ const stylesr = StyleSheet.create({
   },
   button: {
     color: "#fff",
-    backgroundColor: "#444",
+    
     width: "20%",
     height: 50,
     // backgroundColor:"#aaa",
@@ -67,6 +70,7 @@ const stylesr = StyleSheet.create({
 
   },
   image: {
+   
     height: 30,
     width: 30
   }
@@ -88,6 +92,6 @@ const styles = StyleSheet.create({
   buttonRow: {
     flexBasis: 100,
     justifyContent: "space-evenly",
-    marginVertical: 16
+    
   }
 });
