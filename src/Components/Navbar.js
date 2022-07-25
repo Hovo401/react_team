@@ -3,31 +3,35 @@ import { useState, useRef } from 'react'
 import { Animated, StyleSheet, Text, View, TextInput, Button, Image, Pressable } from 'react-native';
 export const Navbar = ({ setRenderName }) => {
 
-
+const [active,setActive]=useState([{backgroundColor:"#aaa"}]);
 
   return (
       <View style={stylesr.navbar}>
 
         <View style={stylesr.alignitems}>
 
-          <Pressable style={stylesr.button} onPress={() => {
+          <Pressable style={[stylesr.button, active[0]]} onPress={() => {
             setRenderName("Home")
+            setActive([stylesr.active]);
           }}>
             <Image style={stylesr.image} source={require("../Icons/home.png")}></Image>
           </Pressable>
-          <Pressable style={stylesr.button} onPress={() => {
-            setRenderName("Search")
+          <Pressable style={[stylesr.button,active[1]]} onPress={() => {
+            setRenderName("Search");
+            setActive([,stylesr.active]);
           }}>
 
             <Image style={stylesr.image} source={require("../Icons/search.png")}></Image>
           </Pressable>
-          <Pressable style={stylesr.button} onPress={() => {
-            setRenderName("Music")
+          <Pressable style={[stylesr.button,active[2]]} onPress={() => {
+            setRenderName("Music");
+            setActive([,,stylesr.active]);
           }}>
             <Image style={stylesr.image} source={require("../Icons/music.png")}></Image>
           </Pressable>
-          <Pressable style={stylesr.button} onPress={() => {
-            setRenderName("Account")
+          <Pressable style={[stylesr.button,active[3]]} onPress={() => {
+            setRenderName("Account");
+            setActive([,,,stylesr.active]);
           }}>
             <Image style={stylesr.image} source={require("../Icons/account.png")}></Image>
           </Pressable>
@@ -40,10 +44,13 @@ export const Navbar = ({ setRenderName }) => {
 
 
 const stylesr = StyleSheet.create({
+  active:{
+    backgroundColor:"#5F5F5F",
+  },
   navbar: {
     width: "100%",
     height: 60,
-    backgroundColor: "black",
+    backgroundColor: "#242424",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -57,9 +64,6 @@ const stylesr = StyleSheet.create({
     
     width: "20%",
     height: 50,
-    // backgroundColor:"#aaa",
-    // borderColor:"#000",
-    // borderWidth:5,
     marginHorizontal: "2.5%",
     borderRadius: 10,
     alignItems: "center",
@@ -67,28 +71,7 @@ const stylesr = StyleSheet.create({
 
   },
   image: {
-   
     height: 30,
     width: 30
-  }
-});
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  fadingContainer: {
-    padding: 20,
-    backgroundColor: "#333"
-  },
-  fadingText: {
-    fontSize: 28
-  },
-  buttonRow: {
-    flexBasis: 100,
-    justifyContent: "space-evenly",
-    
   }
 });

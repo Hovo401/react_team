@@ -1,8 +1,8 @@
 import React from 'react';
-import { Home } from '../Home';
-import { Search } from '../Search';
-import { Music } from '../Music';
-import { Account } from '../Account';
+import { Home } from '../Components/Home';
+import { Search } from '../Components/Search';
+import { Music } from '../Components/Music';
+import { Account } from '../Components/Account';
 
 
 export const Render = (Name_stranic) => {

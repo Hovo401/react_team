@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, View, VirtualizedList, StyleSheet, Text, StatusBar } from 'react-native';
 import { useState, useEffect } from 'react';
-import { Render } from './src/Components/Render/Rendering.js'
+import { Render } from './src/Render/Rendering.js'
 import { Navbar } from './src/Components/Navbar';
 
 
