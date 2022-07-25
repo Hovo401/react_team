@@ -6,22 +6,25 @@ import { Navbar } from './src/Components/Navbar';
 
 
 const App = () => {
-  const [renderName, setRenderName] = useState("Home");
+  const [renderName, setRenderName] = useState("Search");
 
   return (
     <>
-      <SafeAreaView style={styles.container}>
+    <SafeAreaView style={{backgroundColor:"#010101",flex:1}}>
+
+       <View style={styles.container}>
         {Render(renderName)}
-      </SafeAreaView>
+       </View>
 
       <Navbar setRenderName={setRenderName} />
+     </SafeAreaView>
     </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "black",
+    backgroundColor: "#151515",
     flex: 1,
     marginTop: StatusBar.currentHeight,
   },

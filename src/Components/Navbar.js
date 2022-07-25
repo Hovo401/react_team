@@ -1,9 +1,9 @@
 
-import { useState, useRef } from 'react'
-import { Animated, StyleSheet, Text, View, TextInput, Button, Image, Pressable } from 'react-native';
+import { useState} from 'react'
+import {  StyleSheet,  View,  Image, Pressable } from 'react-native';
 export const Navbar = ({ setRenderName }) => {
 
-const [active,setActive]=useState([{backgroundColor:"#aaa"}]);
+const [active,setActive]=useState([stylesr.active]);
 
   return (
       <View style={stylesr.navbar}>
@@ -45,7 +45,7 @@ const [active,setActive]=useState([{backgroundColor:"#aaa"}]);
 
 const stylesr = StyleSheet.create({
   active:{
-    backgroundColor:"#5F5F5F",
+    backgroundColor:"#444444",
   },
   navbar: {
     width: "100%",
