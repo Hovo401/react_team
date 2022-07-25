@@ -10,9 +10,9 @@ const App = () => {
 
   return (
     <>
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         {Render(renderName)}
-      </View>
+      </SafeAreaView>
 
       <Navbar setRenderName={setRenderName} />
     </>

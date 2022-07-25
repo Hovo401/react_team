@@ -1,13 +1,11 @@
 
 import { useState, useRef } from 'react'
 import { Animated, StyleSheet, Text, View, TextInput, Button, Image, Pressable } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 export const Navbar = ({ setRenderName }) => {
 
 
 
   return (
-    <SafeAreaView>
       <View style={stylesr.navbar}>
 
         <View style={stylesr.alignitems}>
@@ -35,7 +33,6 @@ export const Navbar = ({ setRenderName }) => {
           </Pressable>
         </View>
       </View>
-    </SafeAreaView>
 
 
   )
