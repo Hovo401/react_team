@@ -21,7 +21,7 @@ const Item = ({ title }) => (
 export const Home = () => {
 
     return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1,backgroundColor: "white", }}>
             <VirtualizedList
                 data={DATA}
                 initialNumToRender={4}
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
       marginTop: StatusBar.currentHeight,
     },
     item: {
-      backgroundColor: 'gray',
+      backgroundColor: '#D2CFD6',
       height: 150,
       justifyContent: 'center',
       marginVertical: 8,

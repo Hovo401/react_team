@@ -21,6 +21,7 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "black",
     flex: 1,
     marginTop: StatusBar.currentHeight,
   },
