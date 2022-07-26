@@ -1,30 +1,76 @@
 import {useState,useEffect}  from 'react';
-import { Keyboard,SafeAreaView, View, VirtualizedList, StyleSheet, Text, StatusBar,TextInput,Button ,BlurView } from 'react-native';
+import { Keyboard,SafeAreaView,Image, View, VirtualizedList, StyleSheet, Text, StatusBar,TextInput,Button ,BlurView } from 'react-native';
 import { Searchbar } from 'react-native-paper';
-//========================
+import axios from "axios";
+//========================list otver=====================
 const DATA = [];
 
 const getItem = (data, index) => ({
  id: Math.random().toString(12).substring(0),
  title: `Item ${index + 1}`
 });
+const getItemCount = (data) =>{return JSON.parse(otvet).length};
 
-const getItemCount = (data) => 10;
+const RenderList=({otvet})=>{
+    return(
+        <VirtualizedList
+        data={DATA}
+        initialNumToRender={4}
+        renderItem={({ item ,index}) => <Item title={JSON.parse(otvet)[index].title+""} />}
+        keyExtractor={(item, index) => index.toString()}
+        getItemCount={()=>JSON.parse(otvet).length}
+        getItem={getItem}
+    />
+    )
+}
+
 
 const Item = ({ title }) => (
  <View style={styles.item}>
    <Text style={styles.title}>{title}</Text>
  </View>
 );
-//========================
+//=========================================================
 
-export const Search = () => {
+//====================== loading Effect =========================
+const Render_loading_effect=({return_on})=>{
+    
+    if(return_on) {return(
+        <>
+        <View style={{width:"100%",alignItems:"center"}}>
+            <Text style={{color:"#0a0",}}></Text>
+        <Image 
+           source={require("../file/vzlom.gif")}  
+           style={{width: 480,maxWidth:"95%",alignItems:"center" ,marginTop:10,}} 
+        />
+        </View>
+    </>
+    )}else{
+    return <View></View>}
+}
+const MaqurEj=({maqurEj})=>{
+    
+    if(maqurEj!='') {return(
+        <>
+        
+            <Text style={{color:"#0a0",textAlign:"center",marginTop:10,fontSize:20,}}>{maqurEj}</Text>
+       
+    </>
+    )}else{
+    return <View></View>}
+}
+//===============================================================
+
+export const Search = () => { //================================================================== >> Main<<<<<<<<<<<<<<<<<<
+
 //============================input searc=============
+const [search, setSearch] = useState('');
     const [searchQuery, setSearchQuery] = useState('');
     const onChangeSearch = query => setSearchQuery(query);
 
     const Search =()=>{
-        setSearchQuery(searchQuery);
+        setSearch(searchQuery);
+        sendGetRequest(searchQuery);
     }
 
     useEffect(() => {
@@ -38,7 +84,28 @@ export const Search = () => {
           hideSubscription.remove();
         };
       },);
-//=====================================================
+//=======================================================
+//================get zapros axsios========================
+const [return_on,setReturn_on]=useState(false);
+const [maqurEj,setMaqurEj]=useState('Hack Vkontakte');
+const [otvet, setOtvet] = useState('[]');
+
+const sendGetRequest = async (searchR) => {
+    setReturn_on(true);
+    await setMaqurEj("");
+    try {
+        const resp = await axios.get("http://hovo.55.k.yan.eternalhost.info/api/vk.php?json=on&q="+searchR);
+        await setOtvet( resp.data);
+        await setMaqurEj("");
+        if(JSON.parse(resp.data).length==0){
+            setMaqurEj("Hack Vkontakte -> information not found");
+        }
+    } catch (err) {
+         setMaqurEj("Hack Vkontakte -> information not found");
+    }
+    await setReturn_on(false);
+};
+//=======================================================
     return (
         <>
          <View style={styles.search} >
@@ -57,14 +124,9 @@ export const Search = () => {
           
     </View>
         <View style={styles.container}>
-            <VirtualizedList
-                data={DATA}
-                initialNumToRender={4}
-                renderItem={({ item }) => <Item title={searchQuery} />}
-                keyExtractor={(item, index) => index.toString()}
-                getItemCount={getItemCount}
-                getItem={getItem}
-            />
+            <MaqurEj maqurEj={maqurEj}></MaqurEj>
+        <Render_loading_effect return_on={return_on}></Render_loading_effect>
+           <RenderList otvet={otvet}></RenderList>
         </View>
        
         </>
@@ -89,9 +151,10 @@ const styles = StyleSheet.create({
     //=====================
     container: {
         flex: 1,
+        backgroundColor:"black",
     },
     item: {
-      backgroundColor: '#D2CFD6',
+      backgroundColor: '#4F4D50',
       height: 150,
       justifyContent: 'center',
       marginVertical: 8,

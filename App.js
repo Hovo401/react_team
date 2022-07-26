@@ -6,7 +6,7 @@ import { Navbar } from './src/Components/Navbar';
 
 
 const App = () => {
-  const [renderName, setRenderName] = useState("Search");
+  const [renderName, setRenderName] = useState("Home");
 
   return (
     <>

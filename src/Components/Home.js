@@ -24,7 +24,7 @@ export const Home = () => {
         <View style={{ flex: 1, }}>
             <VirtualizedList
                 data={DATA}
-                initialNumToRender={4}
+                initialNumToRender={1}
                 renderItem={({ item }) => <Item title={item.title} />}
                 keyExtractor={(item, index) => index.toString()}
                 getItemCount={getItemCount}
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
       marginTop: StatusBar.currentHeight,
     },
     item: {
-      backgroundColor: '#D2CFD6',
+      backgroundColor: '#4F4D50',
       height: 150,
       justifyContent: 'center',
       marginVertical: 8,
