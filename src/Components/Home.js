@@ -21,7 +21,7 @@ const Item = ({ title }) => (
 export const Home = () => {
 
     return (
-        <View style={{ flex: 1, }}>
+        <View style={{ flex: 1, backgroundColor: "white"}}>
             <VirtualizedList
                 data={DATA}
                 initialNumToRender={1}

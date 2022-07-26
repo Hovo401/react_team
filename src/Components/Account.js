@@ -1,9 +1,10 @@
 import React from 'react';
 import {SafeAreaView, View, Text, StyleSheet, Image, Pressable } from 'react-native';
+
 //import { SafeAreaView } from 'react-native-safe-area-context';
 //import * as Font from 'expo-font';
 
-export const Account = () => {
+export const Account = ({setRenderName}) => {
     // this.state={
     //     fontLoaded: false
     //  }
@@ -26,14 +27,20 @@ export const Account = () => {
 
             </View>
 
-            
+            <View style={{flex:4,backgroundColor: "white",  width:'100%',alignItems: 'center',}}>
             <View style={styles.thirdDiv}>
             <View style={styles.alignHorizontal}>
             <Image style={styles.image1} source={require("../Icons/edit.png")}></Image>
             <Image style={styles.logo} source={require("../Icons/person.png")}></Image>
-            <Image style={styles.image1} source={require("../Icons/settings.png")}></Image>
-            </View>
+            <Pressable onPress={() => {
+                console.log(setRenderName);
+                
+            setRenderName("Settings");
+          
+          }}><Image style={styles.image1} source={require("../Icons/settings.png")} ></Image></Pressable>
             
+            </View>
+                
                 <Text>Username</Text>
                 <Text>e-mail@gmail.com</Text>
                 <View style={{alignSelf: "flex-start", margin:10}}>
@@ -58,6 +65,9 @@ export const Account = () => {
             </View>
             <View style = {{flex:1}}></View>
 
+                    
+                    </View>
+            
 
 
         </View>

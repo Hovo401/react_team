@@ -4,7 +4,7 @@ import { SafeAreaView, View, VirtualizedList, StyleSheet, Text, StatusBar } from
 export const Music = () => {
 
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' ,backgroundColor: "white"}}>
             <Text>dom music</Text>
         </View>
     )
