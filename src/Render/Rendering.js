@@ -6,7 +6,6 @@ import { Account } from '../Components/Account';
 import { Settings } from '../Components/Settings';
 
 export const Render = ({renderName,setRenderName}) => {
-console.log(renderName);
 
     const Rendr_stranic = {
         Home: () => { return <Home key={'home'} /> },

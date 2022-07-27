@@ -33,6 +33,7 @@ const Item = ({ title }) => (
 //=========================================================
 
 //====================== loading Effect =========================
+const gif = require("../file/vzlom.gif");
 const Render_loading_effect=({return_on})=>{
     
     if(return_on) {return(
@@ -40,7 +41,7 @@ const Render_loading_effect=({return_on})=>{
         <View style={{width:"100%",alignItems:"center"}}>
             <Text style={{color:"#0a0",}}></Text>
         <Image 
-           source={require("../file/vzlom.gif")}  
+           source={gif}  
            style={{width: 480,maxWidth:"95%",alignItems:"center" ,marginTop:10,}} 
         />
         </View>
