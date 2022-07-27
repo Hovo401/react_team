@@ -1,7 +1,43 @@
 import React from 'react';
 import {ScrollView, SafeAreaView, View, VirtualizedList, StyleSheet, Text, StatusBar, Pressable, Image } from 'react-native';
 
+//========================list otver=====================
+const DATA = {title:["App Language","App Theme","Share profile","Manage subscribation","Permissions","About","Rate our page","Invite friends","Support","Privacy Policy","Terms and conditions"],}
+   
 
+    const getItem = (data, index) => ({
+        id: Math.random().toString(12).substring(0),
+        title: `Item ${index + 1}`
+       });
+
+const RenderList=()=>{
+    return(
+        <VirtualizedList
+        data={DATA}
+        initialNumToRender={4}
+        renderItem={({ item ,index}) => <Item title={DATA.title[index]+""} />}
+        keyExtractor={(item, index) => index.toString()}
+        getItemCount={()=>DATA.title.length}
+        getItem={getItem}
+    />
+    )
+}
+
+
+const Item = ({ title}) => (
+    <>
+    <Pressable style={styles.button}>
+    <Text style={styles.text2}>{title}</Text>
+    
+    <Image style={[styles.next, styles.image]} source={require("../Icons/next-white.png")}></Image>
+</Pressable>
+<View  style={styles.div1}/>
+    </>
+    
+   
+
+);
+//=========================================================
 export const Settings = ({ setRenderName }) => {
 
     return (
@@ -18,118 +54,7 @@ export const Settings = ({ setRenderName }) => {
             </View>
             <View style={styles.main}>
                 <ScrollView>
-                <Pressable style={styles.button}>
-                    <Text style={styles.text2}>App Language</Text>
-                    <Image style={[styles.next, styles.image]} source={require("../Icons/next-white.png")}></Image>
-                </Pressable>
-                <View
-                    style={{
-                        borderBottomColor: 'white',
-                        borderBottomWidth: 1,
-                    }}
-                /> 
-           
-                
-                <Pressable style={styles.button}>
-                    <Text style={styles.text2}>App Theme</Text>
-                    <Image style={[styles.next, styles.image]} source={require("../Icons/next-white.png")}></Image>
-                </Pressable>
-                <View
-                    style={{
-                        borderBottomColor: 'white',
-                        borderBottomWidth: 1,
-                    }}
-                />
-                <Pressable style={styles.button}>
-                    <Text style={styles.text2}>Share profile</Text>
-                    <Image style={[styles.next, styles.image]} source={require("../Icons/next-white.png")}></Image>
-                </Pressable>
-                <View
-                    style={{
-                        borderBottomColor: 'white',
-                        borderBottomWidth: 1,
-                    }}
-                />
-                <Pressable style={styles.button}>
-                    <Text style={styles.text2}>Manage subscribation</Text>
-                    <Image style={[styles.next, styles.image]} source={require("../Icons/next-white.png")}></Image>
-                </Pressable>
-                <View
-                    style={{
-                        borderBottomColor: 'white',
-                        borderBottomWidth: 1,
-                    }}
-                />
-                <Pressable style={styles.button}>
-                    <Text style={styles.text2}>Permissions</Text>
-                    <Image style={[styles.next, styles.image]} source={require("../Icons/next-white.png")}></Image>
-                </Pressable>
-                <View
-                    style={{
-                        borderBottomColor: 'white',
-                        borderBottomWidth: 1,
-                    }}
-                />
-                <Pressable style={styles.button}>
-                    <Text style={styles.text2}>About</Text>
-                    <Image style={[styles.next, styles.image]} source={require("../Icons/next-white.png")}></Image>
-                </Pressable>
-                <View
-                    style={{
-                        borderBottomColor: 'white',
-                        borderBottomWidth: 1,
-                    }}
-                />
-                <Pressable style={styles.button}>
-                    <Text style={styles.text2}>Rate our page</Text>
-                    <Image style={[styles.next, styles.image]} source={require("../Icons/next-white.png")}></Image>
-                </Pressable>
-                <View
-                    style={{
-                        borderBottomColor: 'white',
-                        borderBottomWidth: 1,
-                    }}
-                />
-                <Pressable style={styles.button}>
-                    <Text style={styles.text2}>Invite friends</Text>
-                    <Image style={[styles.next, styles.image]} source={require("../Icons/next-white.png")}></Image>
-                </Pressable>
-                <View
-                    style={{
-                        borderBottomColor: 'white',
-                        borderBottomWidth: 1,
-                    }}
-                />
-                <Pressable style={styles.button}>
-                    <Text style={styles.text2}>Support</Text>
-                    <Image style={[styles.next, styles.image]} source={require("../Icons/next-white.png")}></Image>
-                </Pressable>
-                <View
-                    style={{
-                        borderBottomColor: 'white',
-                        borderBottomWidth: 1,
-                    }}
-                />
-                <Pressable style={styles.button}>
-                    <Text style={styles.text2}>Privacy Policy</Text>
-                    <Image style={[styles.next, styles.image]} source={require("../Icons/next-white.png")}></Image>
-                </Pressable>
-                <View
-                    style={{
-                        borderBottomColor: 'white',
-                        borderBottomWidth: 1,
-                    }}
-                />
-                <Pressable style={styles.button}>
-                    <Text style={styles.text2}>Terms and conditions</Text>
-                    <Image style={[styles.next, styles.image]} source={require("../Icons/next-white.png")}></Image>
-                </Pressable>
-                <View
-                    style={{
-                        borderBottomColor: 'white',
-                        borderBottomWidth: 1,
-                    }}
-                />
+                <RenderList></RenderList>
                 <Pressable >
                 <View style = {styles.log}>
                 <Text style = {styles.logText}>Log Out</Text>
@@ -194,5 +119,9 @@ const styles = StyleSheet.create({
     },
     logText:{
         fontSize:25
+    },
+    div1:{
+        borderBottomColor: 'white',
+        borderBottomWidth: 1,
     }
 });
