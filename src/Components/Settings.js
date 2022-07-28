@@ -73,7 +73,6 @@ const styles = StyleSheet.create({
         flex: 1,
         marginTop: StatusBar.currentHeight,
         //alignItems: 'center',
-        backgroundColor: "black"
     },
     header: {
         alignItems: "flex-end",
@@ -115,7 +114,7 @@ const styles = StyleSheet.create({
         fontSize: 25
     },
     log:{
-        backgroundColor:"white",alignItems: 'center', marginVertical:"10%"
+        alignItems: 'center', marginVertical:"10%"
     },
     logText:{
         fontSize:25

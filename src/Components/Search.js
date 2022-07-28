@@ -160,7 +160,6 @@ const styles = StyleSheet.create({
     //=====================
     container: {
         flex: 1,
-        backgroundColor:"black",
     },
     item: {
       backgroundColor: '#4F4D50',

@@ -13,6 +13,7 @@ export const Render = ({renderName,setRenderName,}) => {
 
         Search: () => { return <Search key={'edewew'} /> },
         Music: () => { return <Music key={'hoewfewfme'} /> },
+       
         Search: () => { return <Search key={'edewew'} /> },
         Music: () => { return <Music setRenderName={setRenderName} key={'hoewfewfme'} /> },
         Account: () => { return <Account setRenderName={setRenderName} key={'we'} /> },

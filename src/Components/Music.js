@@ -33,7 +33,7 @@ const Item = ({ index ,setRenderName}) => (
             />
         </View>
         <View style={styles.album_details}>
-            <Text style={{ fontSize: 25, marginVertical: 5 }}>song{index}</Text>
+            <Text style={{ fontSize: 20, marginVertical: 5 }}>Playlist {index}</Text>
             <Text style={{ fontSize: 14 }}>Artist Name</Text>
         </View>
         <Pressable  onPress={() => {
@@ -83,7 +83,9 @@ const styles = StyleSheet.create({
         height: 60,
         marginTop: 10,
         ackgroundColor: 'skyblue',
-        alignItems: 'flex-start'
+        alignItems: 'flex-start', 
+        backgroundColor: 'rgba(100, 100, 180, 0.5)', 
+        borderRadius:10
     },
     text: {
         width: "100%",
@@ -93,23 +95,21 @@ const styles = StyleSheet.create({
     },
     component: {
         marginTop: 10,
-        width: '90%',
+        width: '100%',
         height: 70,
-        backgroundColor: 'gray',
+        backgroundColor: 'rgba(100,100,100,.5)',
         flexDirection: 'row',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
+        borderRadius:10,
     },
     image: {
-        // flex: 1,
         height: '100%',
-        // width: '25%',
     },
     album_details: {
         flex: 5,
         height: '100%',
         width: '80%',
         paddingLeft: 20,
-        // marginHorizontal:25,   
         flexDirection: 'column',
     },
     next_page: {
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
         width: 50,
         justifyContent: 'center',
         alignItems: 'flex-end'
-        // marginLeft:'10%'
+
     }
 
 });

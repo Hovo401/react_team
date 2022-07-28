@@ -50,7 +50,7 @@ const stylesr = StyleSheet.create({
   navbar: {
     width: "100%",
     height: 60,
-    backgroundColor: "black",
+    backgroundColor: "rgba(.2,.2,.2,.8)",
     alignItems: "center",
     justifyContent: "center",
   },

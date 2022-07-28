@@ -27,7 +27,7 @@ export const Account = ({ setRenderName }) => {
 
             </View>
 
-            <View style={{ flex: 4, backgroundColor: "white", width: '100%' , alignItems: 'center', }}>
+            <View style={{ flex: 4, width: '100%' , alignItems: 'center', }}>
                 <View style={styles.thirdDiv}>
                     <View style={styles.alignHorizontal}>
                         <Image style={styles.image1} source={require("../Icons/edit.png")}></Image>
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
 
     thirdDiv: {
         alignItems: 'center',
-        backgroundColor: "#D2CFD6",
+        backgroundColor: "rgba(190,190,190,.6)",
         padding:10,
         flex: 4,
         width: "80%",
