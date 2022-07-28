@@ -11,12 +11,12 @@ const getItem = (data, index) => ({
 });
 const getItemCount = (data) =>{return JSON.parse(otvet).length};
 
-const RenderList=({otvet,})=>{
+const RenderList=({otvet,playControl})=>{
     return(
         <VirtualizedList
         data={DATA}
         initialNumToRender={4}
-        renderItem={({ item ,index}) => <Item   title={JSON.parse(otvet)[index].title+""} />}
+        renderItem={({ item ,index}) => <Item  playControl={playControl} title={JSON.parse(otvet)[index].title+""} url={"https://vrit.me"+JSON.parse(otvet)[index].urlDow+""} />}
         keyExtractor={(item, index) => index.toString()}
         getItemCount={()=>JSON.parse(otvet).length}
         getItem={getItem}
@@ -25,12 +25,16 @@ const RenderList=({otvet,})=>{
 }
 
 
-const Item = ({ title,}) => (
+const Item = ({ title,playControl,url}) => (
  <View style={styles.item}>
    <Text style={styles.title}>{title}</Text>
    <Button 
    title={"play"}
-//    onPress={}
+    onPress={()=>{playControl({uri:url});}}
+   ></Button>
+   <Button 
+   title={"download"}
+    onPress={()=>{fetch(url)}}
    ></Button>
  </View>
 );
@@ -68,7 +72,7 @@ const MaqurEj=({maqurEj})=>{
 
 
 
-export const Search = ({recording, setRecording,stopRecording,startRecordin}) => { //================================================================== >> Main<<<<<<<<<<<<<<<<<<
+export const Search = ({recording, setRecording,stopRecording,startRecordin,playControl}) => { //================================================================== >> Main<<<<<<<<<<<<<<<<<<
 
 
 
@@ -135,7 +139,7 @@ const sendGetRequest = async (searchR) => {
         <View style={styles.container}>
             <MaqurEj maqurEj={maqurEj}></MaqurEj>
         <Render_loading_effect return_on={return_on}></Render_loading_effect>
-           <RenderList otvet={otvet}  recording={recording} stopRecording={stopRecording} startRecordin={startRecordin}></RenderList>
+           <RenderList otvet={otvet} playControl={playControl} recording={recording} stopRecording={stopRecording} startRecordin={startRecordin}></RenderList>
         </View>
        
         </>

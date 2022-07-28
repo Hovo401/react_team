@@ -21,7 +21,8 @@
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-paper": "^4.12.3",
     "react-native-sound": "github:zmxv/react-native-sound#HEAD",
-    "react-native-web": "0.17.7"
+    "react-native-web": "0.17.7",
+    "expo-av": "~11.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
