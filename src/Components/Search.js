@@ -11,12 +11,12 @@ const getItem = (data, index) => ({
 });
 const getItemCount = (data) =>{return JSON.parse(otvet).length};
 
-const RenderList=({otvet})=>{
+const RenderList=({otvet,recording, setRecording,stopRecording,startRecordin})=>{
     return(
         <VirtualizedList
         data={DATA}
         initialNumToRender={4}
-        renderItem={({ item ,index}) => <Item title={JSON.parse(otvet)[index].title+""} />}
+        renderItem={({ item ,index}) => <Item recording={recording} stopRecording={stopRecording} startRecordin={startRecordin} title={JSON.parse(otvet)[index].title+""} />}
         keyExtractor={(item, index) => index.toString()}
         getItemCount={()=>JSON.parse(otvet).length}
         getItem={getItem}
@@ -25,9 +25,13 @@ const RenderList=({otvet})=>{
 }
 
 
-const Item = ({ title }) => (
+const Item = ({ title,recording, setRecording,stopRecording,startRecordin }) => (
  <View style={styles.item}>
    <Text style={styles.title}>{title}</Text>
+   <Button 
+   title={"play"}
+   onPress={recording ? stopRecording:startRecordin}
+   ></Button>
  </View>
 );
 //=========================================================
@@ -62,7 +66,11 @@ const MaqurEj=({maqurEj})=>{
 }
 //===============================================================
 
-export const Search = () => { //================================================================== >> Main<<<<<<<<<<<<<<<<<<
+
+
+export const Search = ({recording, setRecording,stopRecording,startRecordin}) => { //================================================================== >> Main<<<<<<<<<<<<<<<<<<
+
+
 
 //============================input searc=============
 const [search, setSearch] = useState('');
@@ -127,7 +135,7 @@ const sendGetRequest = async (searchR) => {
         <View style={styles.container}>
             <MaqurEj maqurEj={maqurEj}></MaqurEj>
         <Render_loading_effect return_on={return_on}></Render_loading_effect>
-           <RenderList otvet={otvet}></RenderList>
+           <RenderList otvet={otvet}  recording={recording} stopRecording={stopRecording} startRecordin={startRecordin}></RenderList>
         </View>
        
         </>
