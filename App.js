@@ -42,7 +42,7 @@ const App = () => {
     <SafeAreaView style={{backgroundColor:"#010101",flex:1}}>
 
        <View style={styles.container}>
-        {Render({renderName,setRenderName,recording, setRecording,stopRecording,startRecordin})}
+        {Render({renderName,setRenderName,})}
        </View>
 
       <Navbar setRenderName={setRenderName} />

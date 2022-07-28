@@ -33,7 +33,6 @@ export const Account = ({ setRenderName }) => {
                         <Image style={styles.image1} source={require("../Icons/edit.png")}></Image>
                         <Image style={styles.logo} source={require("../Icons/person.png")}></Image>
                         <Pressable onPress={() => {
-                            console.log(setRenderName);
 
                             setRenderName("Settings");
 

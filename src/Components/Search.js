@@ -1,5 +1,5 @@
 import {useState,useEffect}  from 'react';
-import { Keyboard,SafeAreaView,Image, View, VirtualizedList, StyleSheet, Text, StatusBar,TextInput,Button ,BlurView } from 'react-native';
+import { Keyboard,Image, View, VirtualizedList, StyleSheet, Text,Button } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 import axios from "axios";
 //========================list otver=====================
@@ -11,12 +11,12 @@ const getItem = (data, index) => ({
 });
 const getItemCount = (data) =>{return JSON.parse(otvet).length};
 
-const RenderList=({otvet,recording, setRecording,stopRecording,startRecordin})=>{
+const RenderList=({otvet,})=>{
     return(
         <VirtualizedList
         data={DATA}
         initialNumToRender={4}
-        renderItem={({ item ,index}) => <Item recording={recording} stopRecording={stopRecording} startRecordin={startRecordin} title={JSON.parse(otvet)[index].title+""} />}
+        renderItem={({ item ,index}) => <Item   title={JSON.parse(otvet)[index].title+""} />}
         keyExtractor={(item, index) => index.toString()}
         getItemCount={()=>JSON.parse(otvet).length}
         getItem={getItem}
@@ -25,12 +25,12 @@ const RenderList=({otvet,recording, setRecording,stopRecording,startRecordin})=>
 }
 
 
-const Item = ({ title,recording, setRecording,stopRecording,startRecordin }) => (
+const Item = ({ title,}) => (
  <View style={styles.item}>
    <Text style={styles.title}>{title}</Text>
    <Button 
    title={"play"}
-   onPress={recording ? stopRecording:startRecordin}
+//    onPress={}
    ></Button>
  </View>
 );

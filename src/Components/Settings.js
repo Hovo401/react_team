@@ -53,7 +53,7 @@ export const Settings = ({ setRenderName }) => {
                 <View style={{ width: '20%' }}></View>
             </View>
             <View style={styles.main}>
-                <ScrollView>
+                
                 <RenderList></RenderList>
                 <Pressable >
                 <View style = {styles.log}>
@@ -61,7 +61,7 @@ export const Settings = ({ setRenderName }) => {
                 </View>
                
             </Pressable>
-                </ScrollView>
+                
               
             </View>
             
