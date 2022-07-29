@@ -13,6 +13,7 @@ const getItemCount = (data) => { };
 const RenderList = ({setRenderName}) => {
     return (
         <VirtualizedList
+        style={{marginBottom:130,}}
             data={DATA}
             initialNumToRender={4}
             renderItem={({ item, index }) => <Item setRenderName={setRenderName} index={index} />}
@@ -37,7 +38,7 @@ const Item = ({ index ,setRenderName}) => (
             <Text style={{ fontSize: 14 }}>Artist Name</Text>
         </View>
         <Pressable  onPress={() => {
-            setRenderName("Music_list")
+            // setRenderName("Music_list")
         }}>
             <View style={styles.next_page}>
                 <Image

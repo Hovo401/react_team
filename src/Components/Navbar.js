@@ -1,7 +1,7 @@
 
 import { useState} from 'react'
 import {  StyleSheet,  View,  Image, Pressable } from 'react-native';
-export const Navbar = ({ setRenderName }) => {
+export const Navbar = ({ setRenderName,setMainPosition }) => {
 
 const [active,setActive]=useState([stylesr.active]);
 
@@ -11,26 +11,26 @@ const [active,setActive]=useState([stylesr.active]);
         <View style={stylesr.alignitems}>
 
           <Pressable style={[stylesr.button, active[0]]} onPress={() => {
-            setRenderName("Home")
+            setMainPosition(0);
             setActive([stylesr.active]);
           }}>
             <Image style={stylesr.image} source={require("../Icons/home.png")}></Image>
           </Pressable>
           <Pressable style={[stylesr.button,active[1]]} onPress={() => {
-            setRenderName("Search");
+            setMainPosition(-100);
             setActive([,stylesr.active]);
           }}>
 
             <Image style={stylesr.image} source={require("../Icons/search.png")}></Image>
           </Pressable>
           <Pressable style={[stylesr.button,active[2]]} onPress={() => {
-            setRenderName("Music");
+            setMainPosition(-200);
             setActive([,,stylesr.active]);
           }}>
             <Image style={stylesr.image} source={require("../Icons/music.png")}></Image>
           </Pressable>
           <Pressable style={[stylesr.button,active[3]]} onPress={() => {
-            setRenderName("Account");
+            setMainPosition(-300);
             setActive([,,,stylesr.active]);
           }}>
             <Image style={stylesr.image} source={require("../Icons/account.png")}></Image>
@@ -49,8 +49,10 @@ const stylesr = StyleSheet.create({
   },
   navbar: {
     width: "100%",
+    position:"absolute",
+    bottom:0,
     height: 60,
-    backgroundColor: "rgba(.2,.2,.2,.8)",
+    backgroundColor: "rgba(2,0,50,.8)",
     alignItems: "center",
     justifyContent: "center",
   },

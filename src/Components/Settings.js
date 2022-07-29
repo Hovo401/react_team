@@ -38,7 +38,7 @@ const Item = ({ title}) => (
 
 );
 //=========================================================
-export const Settings = ({ setRenderName }) => {
+export const Settings = ({ setRenderName,setMainPosition }) => {
 
     return (
         <View style={styles.container}>
@@ -46,8 +46,9 @@ export const Settings = ({ setRenderName }) => {
                 <Pressable onPress={() => {
                     console.log(setRenderName);
 
-                    setRenderName("Account");
-
+                    setRenderName("");
+                    setMainPosition(-300)
+                        
                 }}><Image style={styles.image1} source={require("../Icons/left-arrow.png")} ></Image></Pressable>
                 <Text style={styles.text1}>Settings</Text>
                 <View style={{ width: '20%' }}></View>

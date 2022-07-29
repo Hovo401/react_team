@@ -23,6 +23,7 @@ export const Home = () => {
     return (
         <View style={{ flex: 1}}>
             <VirtualizedList
+            style={{marginBottom:60,}}
                 data={DATA}
                 initialNumToRender={1}
                 renderItem={({ item }) => <Item title={item.title} />}

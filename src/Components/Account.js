@@ -4,7 +4,7 @@ import { SafeAreaView, View, Text, StyleSheet, Image, Pressable } from 'react-na
 //import { SafeAreaView } from 'react-native-safe-area-context';
 //import * as Font from 'expo-font';
 
-export const Account = ({ setRenderName }) => {
+export const Account = ({ setRenderName,setMainPosition }) => {
     // this.state={
     //     fontLoaded: false
     //  }
@@ -34,7 +34,8 @@ export const Account = ({ setRenderName }) => {
                         <Image style={styles.logo} source={require("../Icons/person.png")}></Image>
                         <Pressable onPress={() => {
 
-                            setRenderName("Settings");
+                            //setRenderName("Settings");
+                            setMainPosition(-400);
 
                         }}><Image style={styles.image1} source={require("../Icons/settings.png")} ></Image></Pressable>
 
