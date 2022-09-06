@@ -45,7 +45,7 @@ const [active,setActive]=useState([stylesr.active]);
 
 const stylesr = StyleSheet.create({
   active:{
-    backgroundColor:"#444444",
+    backgroundColor: 'rgba(100, 100, 180, 0.5)', 
   },
   navbar: {
     width: "100%",

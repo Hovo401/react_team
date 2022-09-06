@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
         padding: 10,
         width: "100%",
         flex: 1,
-        backgroundColor: "black",
+        backgroundColor: "rgba(2,0,50,.8)",
 
     },
 
@@ -133,7 +133,8 @@ const styles = StyleSheet.create({
 
     thirdDiv: {
         alignItems: 'center',
-        backgroundColor: "rgba(190,190,190,.6)",
+         backgroundColor: "rgba(190,190,190,.6)",
+        //backgroundColor: 'rgba(100, 100, 180, 0.5)', 
         padding:10,
         flex: 4,
         width: "80%",

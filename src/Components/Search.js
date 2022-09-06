@@ -79,7 +79,7 @@ const Item = ({ title, playControl, url, artist, img }) => {
             </View>
             <View style={styles.text}>
                 <Text style={styles.text_}>{title}</Text>
-                <Text style={styles.text_}>->{artist}</Text>
+                <Text style={styles.text_}>{artist}</Text>
             </View>
             <View style={styles.play_d}>
                 <Button
@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
 
     },
     inputSearch: {
-        backgroundColor: "#535353",
+        backgroundColor: 'rgba(100, 100, 180, 0.5)', 
         borderBottomLeftRadius: 15,
         borderBottomRightRadius: 15,
     },
