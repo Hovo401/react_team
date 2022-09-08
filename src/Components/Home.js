@@ -4,18 +4,9 @@ import { FlatList, ScrollView, Image, SafeAreaView, View, VirtualizedList, Style
 //========================
 const DATA = [];
 
-// for (let i = 1; i <= 10; i++) {
-//   DATA.push(  <View style={styles.item}>
-//     <Text style={styles.title}>Title</Text>
-//   </View>);
-// }
-
-const logo = {
-  uri: 'https://reactnative.dev/img/tiny_logo.png',
-  width: 64,
-  height: 64
-};
-
+for (let i = 1; i <= 10; i++) {
+  DATA.push('arbitrary datam #' + (i + 1));
+}
 
 
 
@@ -29,29 +20,42 @@ export const Home = () => {
         <Image style={styles.image1} source={require("../Icons/mainLogo.png")}></Image>
         <Image style={styles.logo} source={require("../Icons/person.png")}></Image>
       </View>
-      <View style={{ flex: 5 }}>
+      <View style={{ flex: 4 }}>
       <Text style={
           [styles.text1]
         }>Popular playlists</Text>
         <ScrollView horizontal={true} >
-   
-    <Image source={logo} />
-    <Image source={logo} />
-    <Image source={logo} />
-    <Image source={logo} />
-    <Image source={logo} />
-    <Image source={logo} />
-    <Image source={logo} />
-    <Image source={logo} />
-    <Image source={logo} />
-    <Image source={logo} />
+        
+        {DATA.map((item, index) => {
+                    return (
+                      <View style={styles.item} key = {index}>
+                      <Text style={styles.title}>{item}</Text>
+                    </View>
+                    );
+                })}
    
   
   </ScrollView>
-        <Text style={
+        
+      </View>
+      <View style={{ flex: 4 }}>
+      <Text style={
           [styles.text1]
         }>Today's hits</Text> 
+        <ScrollView horizontal={true} >
+        
+        {DATA.map((item, index) => {
+                    return (
+                      <View style={styles.item} key = {index}>
+                      <Text style={styles.title}>{item}</Text>
+                    </View>
+                    );
+                })}
+   
+  
+  </ScrollView>
       </View>
+      
     </View>
   )
 }
@@ -69,14 +73,15 @@ const styles = StyleSheet.create({
   },
   item: {
     backgroundColor: 'rgba(.2,.2,.2,.6)',
-    height: 150,
+    height: 300,
     justifyContent: 'center',
     marginVertical: 8,
     marginHorizontal: 16,
     padding: 20,
   },
   title: {
-    fontSize: 32,
+    fontSize: 12,
+    color: "white",
   },
   text1: {
     color: "white",
